@@ -1,0 +1,1375 @@
+# 1. Self-introduction and project explanation
+
+### Q1. Tell me about yourself.
+
+**Answer:**
+
+Good morning. I'm a software engineer with experience in backend development, primarily working with Java and Spring Boot.
+
+I previously worked at SecureW2, where I was involved in developing identity and certificate-management solutions. My work included backend services, REST API development, certificate enrollment, renewal and revocation workflows, and integrations with external systems.
+
+I have experience with Java, Spring Boot, SQL, REST APIs and enterprise application development. I've also worked with security-related technologies and integrations involving protocols such as SCEP and OCSP.
+
+I've recently joined Accenture as a Full Stack Engineer. I'm looking forward to applying my backend development experience, learning the Bank of America business domain and contributing to enterprise-scale applications.
+
+### Q2. Explain your previous project at SecureW2.
+
+**Answer:**
+
+My previous project was in the identity and certificate-management domain.
+
+The product helps organizations manage digital certificates and secure device authentication.
+
+The main functionalities included:
+- Certificate enrollment.
+- Certificate renewal.
+- Certificate revocation.
+- Authentication and authorization.
+- Integration with external security platforms.
+- Certificate status validation.
+
+From the backend perspective, we used Java and Spring Boot to implement business logic and REST APIs. The application communicated with external systems and handled certificate lifecycle operations.
+
+The main focus was security, reliability, proper validation and maintaining consistent certificate states.
+
+### Q3. Explain your project architecture.
+
+**Answer:**
+
+Our application followed a layered architecture.
+
+1. Controller layer: Receives HTTP requests and validates incoming request structures.
+2. Service layer: Contains business logic and orchestrates operations.
+3. Repository layer: Handles database interactions.
+4. Database: Stores application data and relevant records.
+5. Integration layer: Communicates with external services and systems.
+
+A typical request starts from a client, reaches a REST controller, passes through the service layer, interacts with the database or external integrations, and returns an appropriate response.
+
+We maintain separation of concerns so that each layer has a specific responsibility.
+
+### Q4. What was your individual responsibility?
+
+**Answer:**
+
+My responsibilities included backend feature development, implementing REST endpoints, writing business logic, integrating external services, handling exceptions and debugging issues.
+
+I also worked on understanding existing code, fixing defects, testing functionality and coordinating with team members during development.
+
+### Q5. Explain certificate enrollment.
+
+**Answer:**
+
+Certificate enrollment is the process of requesting and obtaining a digital certificate for a device or user.
+
+A typical flow is:
+
+1. A device or client initiates a certificate request.
+2. The request is validated.
+3. The system verifies the identity and enrollment policies.
+4. The certificate authority processes the request.
+5. A certificate is issued.
+6. The certificate is delivered to the requesting device.
+7. Its status and lifecycle are tracked.
+
+### Q6. What is OCSP?
+
+**Answer:**
+
+OCSP stands for Online Certificate Status Protocol.
+
+It is used to check whether a digital certificate is valid, revoked or unknown.
+
+Instead of downloading the entire Certificate Revocation List, a client can query an OCSP responder for the status of a particular certificate.
+
+### Q7. What is SCEP?
+
+**Answer:**
+
+SCEP stands for Simple Certificate Enrollment Protocol.
+
+It is used to automate certificate enrollment for network devices and endpoints.
+
+It allows devices to request certificates from a certificate authority using a standardised enrollment process.
+
+### Q8. How do you handle failures in external integrations?
+
+**Answer:**
+
+I would handle integration failures using:
+- Proper exception handling.
+- Connection and read timeouts.
+- Retry mechanisms for transient failures.
+- Circuit breakers to prevent cascading failures.
+- Logging with correlation IDs.
+- Appropriate error responses.
+- Monitoring and alerting.
+
+Retries should be carefully designed, especially for operations that could create duplicate records or transactions.
+
+### Q9. What was your biggest technical challenge?
+
+**Answer template — personalise with a real example:**
+
+One challenging issue I worked on involved an integration between our application and an external system.
+
+The challenge was identifying whether the failure was occurring in our business logic, request processing or the external integration.
+
+I investigated application logs, traced the request flow, checked the request and response payloads, and identified the underlying issue.
+
+I then worked on correcting the implementation and validating the behaviour through testing.
+
+The experience taught me the importance of structured logging, debugging and understanding end-to-end request flows.
+
+### Q10. Why do you want to work on the Bank of America project?
+
+**Answer:**
+
+I'm interested in working on enterprise-scale financial applications because they require strong engineering practices, security, reliability and data consistency.
+
+My previous experience in identity and certificate management has given me exposure to secure application development.
+
+I believe that experience, combined with my Java and Spring Boot skills, will help me contribute to the project while learning the banking domain.
+
+---
+
+# 2. Core Java interview questions
+
+### Q11. What are the main features of Java?
+
+**Answer:**
+
+- Object-oriented.
+- Platform-independent.
+- Robust.
+- Secure.
+- Multithreaded.
+- Automatic memory management.
+- Strong exception handling.
+- Rich standard libraries.
+
+Java uses bytecode executed by the JVM, which enables platform independence.
+
+### Q12. Explain JVM, JRE and JDK.
+
+**Answer:**
+
+- JVM: Executes Java bytecode.
+- JRE: Provides the JVM and runtime libraries required to run Java applications.
+- JDK: Includes development tools, compiler and runtime components needed to develop Java applications.
+
+### Q13. What are the four pillars of OOP?
+
+**Answer:**
+
+1. Encapsulation: Binding data and methods together and controlling access.
+2. Inheritance: Reusing properties and behaviour from a parent class.
+3. Polymorphism: One interface or method name having different implementations.
+4. Abstraction: Hiding implementation details and exposing essential functionality.
+
+### Q14. Difference between overloading and overriding?
+
+**Answer:**
+
+**Overloading:**
+- Same method name.
+- Different parameter lists.
+- Usually within the same class.
+- Compile-time polymorphism.
+
+**Overriding:**
+- Subclass provides a new implementation of a parent method.
+- Same compatible method signature.
+- Runtime polymorphism.
+
+### Q15. Difference between abstract class and interface?
+
+**Answer:**
+
+An abstract class can contain instance variables, constructors, abstract methods and concrete methods.
+
+An interface defines a contract that implementing classes must follow. It can also contain default, static and private methods.
+
+A class can extend only one class but can implement multiple interfaces.
+
+### Q16. Difference between == and equals()?
+
+**Answer:**
+
+`==` compares primitive values or object references.
+
+`equals()` compares logical equality when the class implements it appropriately.
+
+For example, two different String objects may have the same content. Their `equals()` returns true, but `==` can return false.
+
+### Q17. Why is String immutable in Java?
+
+**Answer:**
+
+String is immutable, meaning its value cannot be changed after creation.
+
+Benefits include:
+- Security.
+- Thread safety.
+- String pool optimisation.
+- Reliable hash codes.
+- Safe use as HashMap keys.
+
+### Q18. String vs StringBuilder vs StringBuffer?
+
+**Answer:**
+
+| Feature | String | StringBuilder | StringBuffer |
+|---|---|---|---|
+| Mutable | No | Yes | Yes |
+| Thread-safe | Immutable | No | Yes |
+| Performance for repeated changes | Poorer | Better | Generally slower than StringBuilder |
+
+Use StringBuilder for repeated modifications in a single-threaded context.
+
+### Q19. Explain HashMap internal working.
+
+**Answer:**
+
+HashMap stores key-value pairs.
+
+When inserting an entry:
+
+1. It calculates the key's hash code.
+2. It determines the bucket index.
+3. It checks whether the bucket already contains entries.
+4. If a hash collision occurs, it uses equality checks to identify matching keys.
+5. If the key already exists, its value is replaced.
+6. Otherwise, a new entry is inserted.
+
+In Java 8, heavily populated buckets can be converted into balanced trees under appropriate conditions.
+
+Average lookup complexity is O(1), although collisions can affect performance.
+
+### Q20. HashMap vs ConcurrentHashMap?
+
+**Answer:**
+
+HashMap is not thread-safe.
+
+ConcurrentHashMap supports concurrent access and updates by multiple threads using concurrency mechanisms.
+
+ConcurrentHashMap does not allow null keys or null values, whereas HashMap permits one null key and multiple null values.
+
+### Q21. ArrayList vs LinkedList?
+
+**Answer:**
+
+ArrayList uses a dynamically resizable array.
+
+LinkedList uses a doubly linked list.
+
+ArrayList provides efficient random access, while LinkedList can perform efficient insertion or removal when the relevant node position is already available.
+
+For most ordinary application use cases, ArrayList is preferred.
+
+### Q22. What is the difference between checked and unchecked exceptions?
+
+**Answer:**
+
+Checked exceptions are checked by the compiler and must be caught or declared.
+
+Examples: IOException and SQLException.
+
+Unchecked exceptions occur at runtime and are subclasses of RuntimeException.
+
+Examples: NullPointerException and IllegalArgumentException.
+
+### Q23. Difference between throw and throws?
+
+**Answer:**
+
+`throw` is used to explicitly throw an exception.
+
+`throws` declares possible exceptions in a method signature.
+
+### Q24. What is multithreading?
+
+**Answer:**
+
+Multithreading allows multiple threads to execute concurrently within a process.
+
+It helps improve responsiveness and resource utilisation.
+
+Java provides Thread, Runnable, Callable, ExecutorService and other concurrency utilities.
+
+### Q25. What is synchronization?
+
+**Answer:**
+
+Synchronization controls access to shared resources so that only one thread at a time executes a particular synchronized section or method for the same monitor.
+
+It helps prevent race conditions.
+
+### Q26. What is garbage collection?
+
+**Answer:**
+
+Garbage collection is Java's automatic memory-management mechanism.
+
+The JVM identifies objects that are no longer reachable and reclaims their memory.
+
+Developers generally don't manually free Java objects.
+
+---
+
+# 3. Java 8 and Java 17
+
+### Q27. What are the important Java 8 features?
+
+**Answer:**
+
+The major features are:
+
+1. Lambda expressions.
+2. Stream API.
+3. Functional interfaces.
+4. Default and static interface methods.
+5. Optional.
+6. Method references.
+7. New Date and Time API.
+8. CompletableFuture.
+
+### Q28. What is a lambda expression?
+
+**Answer:**
+
+A lambda expression is a concise way to implement a functional interface.
+
+Example:
+
+```java
+List<String> names = Arrays.asList("Ram", "Sam", "John");
+
+names.forEach(name -> System.out.println(name));
+```
+
+### Q29. What is a functional interface?
+
+**Answer:**
+
+A functional interface contains exactly one abstract method.
+
+Examples include:
+- Runnable.
+- Callable.
+- Predicate.
+- Function.
+- Consumer.
+- Supplier.
+
+`@FunctionalInterface` is used to explicitly indicate this intention.
+
+### Q30. Explain Stream API.
+
+**Answer:**
+
+Stream API allows us to process collections declaratively.
+
+It supports operations such as:
+- filter()
+- map()
+- sorted()
+- distinct()
+- collect()
+- reduce()
+- forEach()
+
+Example:
+
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+List<Integer> result = numbers.stream()
+        .filter(n -> n % 2 == 0)
+        .collect(Collectors.toList());
+```
+
+Output: `[2, 4, 6]`
+
+### Q31. Difference between map() and flatMap()?
+
+**Answer:**
+
+`map()` transforms each element into another element.
+
+`flatMap()` transforms each element into a stream and flattens the resulting streams into one stream.
+
+For example, converting a list of lists into one flat list is a common use of flatMap.
+
+### Q32. What is Optional?
+
+**Answer:**
+
+Optional is a container that may or may not contain a value.
+
+It helps express potentially absent values and reduces careless null handling.
+
+Example:
+
+```java
+Optional<String> name = Optional.ofNullable(getName());
+
+String result = name.orElse("Unknown");
+```
+
+### Q33. What are some Java 17 features?
+
+**Answer:**
+
+- Records.
+- Sealed classes.
+- Pattern matching for instanceof.
+- Text blocks.
+- Switch expressions.
+- Improvements in JVM performance and garbage collection.
+
+Example of a record:
+
+```java
+public record Employee(Long id, String name) {}
+```
+
+Records are useful for concise data-carrier classes.
+
+---
+
+# 4. Spring Boot interview questions
+
+### Q34. What is Spring Boot?
+
+**Answer:**
+
+Spring Boot is built on top of the Spring Framework.
+
+It simplifies application development by providing:
+- Auto-configuration.
+- Starter dependencies.
+- Embedded servers.
+- Production-ready features through Actuator.
+- Reduced boilerplate configuration.
+
+### Q35. What is @SpringBootApplication?
+
+**Answer:**
+
+It is a combination of three annotations:
+
+- `@Configuration`
+- `@EnableAutoConfiguration`
+- `@ComponentScan`
+
+It configures the application, enables auto-configuration and scans for Spring components.
+
+### Q36. Explain dependency injection.
+
+**Answer:**
+
+Dependency injection is a design principle where the framework provides the dependencies required by a class instead of the class creating them directly.
+
+Spring manages these dependencies through its IoC container.
+
+It improves loose coupling, maintainability and testability.
+
+### Q37. Constructor injection vs field injection?
+
+**Answer:**
+
+Constructor injection provides dependencies through the constructor.
+
+Field injection injects dependencies directly into fields using annotations.
+
+Constructor injection is preferred because it:
+- Supports immutable dependencies.
+- Makes dependencies explicit.
+- Makes unit testing easier.
+- Helps ensure required dependencies are provided.
+
+Example:
+
+```java
+@Service
+public class EmployeeService {
+
+    private final EmployeeRepository repository;
+
+    public EmployeeService(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+}
+```
+
+### Q38. Difference between @Component, @Service, @Repository and @Controller?
+
+**Answer:**
+
+- `@Component`: Generic Spring-managed component.
+- `@Service`: Business logic layer.
+- `@Repository`: Data-access layer; also supports persistence exception translation.
+- `@Controller`: MVC controller for web requests.
+
+`@RestController` combines `@Controller` and `@ResponseBody`.
+
+### Q39. What is Spring Bean?
+
+**Answer:**
+
+A Spring Bean is an object managed by the Spring IoC container.
+
+Spring creates, configures and manages its lifecycle based on the bean definition and scope.
+
+### Q40. What are bean scopes?
+
+**Answer:**
+
+Common Spring bean scopes:
+
+- Singleton: One instance per Spring IoC container; default.
+- Prototype: New instance each time requested.
+- Request: One instance per HTTP request.
+- Session: One instance per HTTP session.
+- Application: One instance per ServletContext.
+
+### Q41. What is Spring Boot auto-configuration?
+
+**Answer:**
+
+Spring Boot automatically configures beans based on the dependencies present in the classpath, existing beans and application configuration.
+
+For example, adding the Spring Web starter enables the necessary web application configuration.
+
+### Q42. What is @Autowired?
+
+**Answer:**
+
+`@Autowired` tells Spring to inject a matching dependency.
+
+However, constructor injection is preferred, and with a single constructor Spring can inject dependencies without explicitly using `@Autowired`.
+
+### Q43. What is @Transactional?
+
+**Answer:**
+
+`@Transactional` defines a transaction boundary.
+
+If an operation involves multiple database changes, it allows them to be committed together or rolled back according to transaction rules.
+
+By default, Spring rolls back on unchecked exceptions and Errors, not all checked exceptions.
+
+Example:
+
+```java
+@Transactional
+public void transferMoney() {
+    debitAccount();
+    creditAccount();
+}
+```
+
+For a transfer, both database operations should succeed together.
+
+### Q44. How do you handle exceptions globally?
+
+**Answer:**
+
+We use `@ControllerAdvice` with `@ExceptionHandler`.
+
+This allows us to centralise exception handling and return consistent error responses.
+
+Example:
+
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleException(
+            RuntimeException ex) {
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ex.getMessage());
+    }
+}
+```
+
+In production, we should avoid exposing internal exception messages or stack traces to clients.
+
+### Q45. What is Spring Data JPA?
+
+**Answer:**
+
+Spring Data JPA simplifies database operations by providing repository abstractions.
+
+Instead of writing repetitive CRUD implementations, we can extend interfaces such as JpaRepository.
+
+Example:
+
+```java
+public interface EmployeeRepository
+        extends JpaRepository<Employee, Long> {
+
+    List<Employee> findByDepartment(String department);
+}
+```
+
+### Q46. What is the difference between save() and saveAndFlush()?
+
+**Answer:**
+
+`save()` persists or updates an entity through the repository, but the SQL operation may be deferred until flushing.
+
+`saveAndFlush()` saves and explicitly flushes pending changes to the database.
+
+A flush is not the same as a transaction commit.
+
+### Q47. What is the N+1 query problem?
+
+**Answer:**
+
+The N+1 problem happens when an initial query fetches a list of entities, followed by one additional query for each entity to retrieve related data.
+
+For example, one query retrieves 100 employees and 100 more queries retrieve their departments.
+
+Solutions include:
+- Fetch joins.
+- Entity graphs.
+- DTO projections.
+- Batch fetching.
+
+### Q48. How do you secure a Spring Boot REST API?
+
+**Answer:**
+
+I would use Spring Security and implement:
+- Authentication.
+- Role-based authorization.
+- JWT or OAuth2 where appropriate.
+- HTTPS.
+- Input validation.
+- Password hashing.
+- Secure session/token management.
+- Appropriate CORS configuration.
+- Audit logging.
+
+---
+
+# 5. REST API and Microservices
+
+### Q49. What is REST?
+
+**Answer:**
+
+REST is an architectural style for designing network-based applications.
+
+It uses resources identified by URLs and standard HTTP methods such as GET, POST, PUT, PATCH and DELETE.
+
+REST APIs are generally stateless.
+
+### Q50. Difference between PUT and PATCH?
+
+**Answer:**
+
+PUT generally replaces the resource representation.
+
+PATCH applies a partial modification to a resource.
+
+PUT is intended to be idempotent. PATCH is not necessarily idempotent; that depends on the operation.
+
+### Q51. What is idempotency?
+
+**Answer:**
+
+An operation is idempotent when performing it multiple times has the same intended effect as performing it once.
+
+For example, setting an account status to ACTIVE multiple times should not create additional effects.
+
+In payment systems, idempotency keys help prevent duplicate processing of repeated requests.
+
+### Q52. What is the difference between monolithic and microservices architecture?
+
+**Answer:**
+
+A monolithic application is deployed as one unified application.
+
+Microservices architecture splits functionality into smaller independently deployable services.
+
+Advantages of microservices:
+- Independent deployment.
+- Independent scaling.
+- Better separation of business capabilities.
+- Technology flexibility.
+
+Challenges:
+- Network failures.
+- Distributed transactions.
+- Monitoring complexity.
+- Service communication.
+- Data consistency.
+
+### Q53. How do microservices communicate?
+
+**Answer:**
+
+Two common approaches are:
+
+1. Synchronous: REST APIs or gRPC.
+2. Asynchronous: Messaging systems such as Kafka or RabbitMQ.
+
+The appropriate approach depends on latency, coupling and reliability requirements.
+
+### Q54. What is an API Gateway?
+
+**Answer:**
+
+An API Gateway is an entry point for clients accessing multiple backend services.
+
+It can handle routing, authentication, rate limiting, request transformation and logging.
+
+### Q55. What is a circuit breaker?
+
+**Answer:**
+
+A circuit breaker prevents repeated calls to a failing external service.
+
+It generally has three states:
+
+- Closed: Requests are allowed.
+- Open: Requests are blocked temporarily.
+- Half-open: A limited number of requests test recovery.
+
+It helps prevent cascading failures.
+
+### Q56. What is distributed transaction management?
+
+**Answer:**
+
+It is the process of maintaining consistency across multiple services or databases.
+
+Instead of relying on a single local database transaction, distributed systems often use patterns such as Saga.
+
+Saga coordinates multiple local transactions and uses compensating actions when a step fails.
+
+---
+
+# 6. Apache Kafka interview questions
+
+### Q57. What is Kafka?
+
+**Answer:**
+
+Apache Kafka is a distributed event-streaming platform.
+
+It enables applications to publish, store and consume events asynchronously.
+
+It is useful for decoupling services, processing events and building scalable distributed systems.
+
+### Q58. Explain Kafka architecture.
+
+**Answer:**
+
+Important components:
+
+- Producer: Publishes messages.
+- Consumer: Reads messages.
+- Topic: Logical category of messages.
+- Partition: Splits a topic for parallel processing.
+- Broker: Kafka server.
+- Consumer group: Group of consumers sharing partition work.
+- Offset: Position of a consumer in a partition.
+
+### Q59. What is a Kafka partition?
+
+**Answer:**
+
+A partition is an ordered sequence of messages within a topic.
+
+Partitions allow parallel consumption and horizontal scalability.
+
+Ordering is guaranteed within a partition, not across all partitions of a topic.
+
+### Q60. What is a consumer group?
+
+**Answer:**
+
+A consumer group consists of consumers that work together to process a topic.
+
+Partitions are assigned among consumers in the group.
+
+Typically, one partition is assigned to only one consumer within a consumer group at a time.
+
+### Q61. What happens if a Kafka consumer fails?
+
+**Answer:**
+
+Kafka rebalances the consumer group and reassigns the failed consumer's partitions to available consumers.
+
+The new consumer resumes processing from the committed offset.
+
+Depending on offset management and processing design, duplicate processing may occur.
+
+### Q62. What is an offset?
+
+**Answer:**
+
+An offset is a unique sequential position of a record within a Kafka partition.
+
+Consumers use offsets to track their progress.
+
+### Q63. How do you handle duplicate Kafka messages?
+
+**Answer:**
+
+I would implement idempotent consumer processing.
+
+For example:
+- Give every event a unique event ID.
+- Maintain processed-event records.
+- Check whether an event has already been processed.
+- Use database transactions where appropriate.
+- Commit offsets only after successful processing.
+
+### Q64. What is the difference between Kafka and REST?
+
+**Answer:**
+
+REST is typically synchronous request-response communication.
+
+Kafka supports asynchronous event-based communication.
+
+REST is useful when a caller needs an immediate response. Kafka is useful when multiple systems need to process events independently.
+
+### Q65. What is a dead-letter topic?
+
+**Answer:**
+
+A dead-letter topic stores messages that repeatedly fail processing.
+
+It allows failed messages to be investigated and potentially reprocessed without blocking normal message consumption.
+
+### Q66. What are Kafka delivery semantics?
+
+**Answer:**
+
+Three commonly discussed delivery semantics are:
+
+- At-most-once: A message may be lost, but isn't redelivered.
+- At-least-once: Messages are delivered one or more times, so duplicates are possible.
+- Exactly-once: Kafka supports transactional processing features, but end-to-end exactly-once behaviour requires careful coordination with external systems and databases.
+
+---
+
+# 7. MySQL and SQL interview questions
+
+### Q67. What is MySQL?
+
+**Answer:**
+
+MySQL is a relational database management system that stores structured data in tables.
+
+It supports SQL for querying, inserting, updating and deleting data.
+
+### Q68. What are primary and foreign keys?
+
+**Answer:**
+
+A primary key uniquely identifies a row in a table.
+
+A foreign key establishes a relationship between tables and enforces referential integrity.
+
+### Q69. What are the different types of joins?
+
+**Answer:**
+
+- INNER JOIN: Matching records from both tables.
+- LEFT JOIN: All records from the left table and matching records from the right.
+- RIGHT JOIN: All records from the right table and matching records from the left.
+- CROSS JOIN: Cartesian product.
+- SELF JOIN: A table joined with itself.
+
+### Q70. Difference between WHERE and HAVING?
+
+**Answer:**
+
+WHERE filters individual rows before grouping.
+
+HAVING filters grouped results after GROUP BY.
+
+### Q71. What is an index?
+
+**Answer:**
+
+An index improves data retrieval performance by allowing the database to locate records more efficiently.
+
+However, indexes consume storage and can slow down INSERT, UPDATE and DELETE operations because the indexes must also be maintained.
+
+### Q72. What is database normalization?
+
+**Answer:**
+
+Normalization organises database tables to reduce data duplication and improve data integrity.
+
+Common forms:
+- 1NF: Atomic values.
+- 2NF: No partial dependency on a candidate key.
+- 3NF: No transitive dependency of non-key attributes on candidate keys.
+
+### Q73. Explain ACID properties.
+
+**Answer:**
+
+- Atomicity: All operations succeed or fail together.
+- Consistency: Data remains valid according to defined constraints.
+- Isolation: Concurrent transactions are isolated according to the chosen isolation level.
+- Durability: Committed data survives failures.
+
+### Q74. What are the transaction isolation levels?
+
+**Answer:**
+
+1. Read Uncommitted.
+2. Read Committed.
+3. Repeatable Read.
+4. Serializable.
+
+They control how concurrent transactions can observe each other's changes.
+
+MySQL InnoDB uses Repeatable Read by default.
+
+### Q75. What is a deadlock?
+
+**Answer:**
+
+A deadlock occurs when two or more transactions wait for resources held by each other.
+
+The database detects the deadlock and rolls back one transaction.
+
+We can reduce deadlocks by:
+- Accessing tables in a consistent order.
+- Keeping transactions short.
+- Creating appropriate indexes.
+- Avoiding unnecessary locks.
+
+### Q76. Difference between DELETE, TRUNCATE and DROP?
+
+**Answer:**
+
+- DELETE removes selected rows and supports WHERE.
+- TRUNCATE removes all rows from a table.
+- DROP removes the table structure itself.
+
+In MySQL, TRUNCATE is DDL and causes an implicit commit.
+
+### Q77. Write a query to find the second-highest salary.
+
+**Answer:**
+
+```sql
+SELECT MAX(salary)
+FROM employee
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employee
+);
+```
+
+### Q78. Find duplicate records.
+
+**Answer:**
+
+```sql
+SELECT email, COUNT(*)
+FROM employee
+GROUP BY email
+HAVING COUNT(*) > 1;
+```
+
+### Q79. Find employees who do not belong to any department.
+
+**Answer:**
+
+```sql
+SELECT e.*
+FROM employee e
+LEFT JOIN department d
+ON e.department_id = d.id
+WHERE d.id IS NULL;
+```
+
+### Q80. Find the highest salary in each department.
+
+**Answer:**
+
+```sql
+SELECT department_id, MAX(salary)
+FROM employee
+GROUP BY department_id;
+```
+
+### Q81. Find the third-highest distinct salary.
+
+**Answer:**
+
+```sql
+SELECT DISTINCT salary
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+```
+
+### Q82. How do you optimise a slow SQL query?
+
+**Answer:**
+
+I would:
+1. Analyse the query using EXPLAIN.
+2. Check whether appropriate indexes exist.
+3. Avoid unnecessary SELECT *.
+4. Check JOIN conditions.
+5. Review subqueries and execution plans.
+6. Check table sizes and cardinality.
+7. Avoid unnecessary functions on indexed columns.
+8. Review pagination and data-fetching strategies.
+
+---
+
+# 8. Coding questions
+
+### Q83. Reverse a String.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        String str = "BankOfAmerica";
+
+        String reversed = new StringBuilder(str)
+                .reverse()
+                .toString();
+
+        System.out.println(reversed);
+    }
+}
+```
+
+### Q84. Check whether a String is a palindrome.
+
+```java
+public static boolean isPalindrome(String str) {
+    String reversed = new StringBuilder(str)
+            .reverse()
+            .toString();
+
+    return str.equals(reversed);
+}
+```
+
+### Q85. Find duplicate characters in a String.
+
+```java
+Map<Character, Integer> map = new HashMap<>();
+
+for (char c : "programming".toCharArray()) {
+    map.put(c, map.getOrDefault(c, 0) + 1);
+}
+
+map.forEach((key, value) -> {
+    if (value > 1) {
+        System.out.println(key + " : " + value);
+    }
+});
+```
+
+### Q86. Find even numbers using Java 8.
+
+```java
+List<Integer> numbers =
+        Arrays.asList(1, 2, 3, 4, 5, 6);
+
+List<Integer> even = numbers.stream()
+        .filter(n -> n % 2 == 0)
+        .collect(Collectors.toList());
+
+System.out.println(even);
+```
+
+### Q87. Find the maximum number in a list.
+
+```java
+int max = numbers.stream()
+        .max(Integer::compareTo)
+        .orElseThrow();
+
+System.out.println(max);
+```
+
+### Q88. Find the frequency of each character.
+
+```java
+Map<Character, Long> frequency =
+        "hello".chars()
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+        ));
+
+System.out.println(frequency);
+```
+
+### Q89. Sort employees by salary using Java 8.
+
+```java
+employees.stream()
+        .sorted(Comparator.comparing(
+                Employee::getSalary
+        ))
+        .forEach(System.out::println);
+```
+
+### Q90. Remove duplicates from a list.
+
+```java
+List<Integer> unique = numbers.stream()
+        .distinct()
+        .collect(Collectors.toList());
+```
+
+### Q91. Find the first non-repeated character.
+
+```java
+String str = "swiss";
+
+Map<Character, Long> map = str.chars()
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                LinkedHashMap::new,
+                Collectors.counting()
+        ));
+
+Character result = map.entrySet().stream()
+        .filter(e -> e.getValue() == 1)
+        .map(Map.Entry::getKey)
+        .findFirst()
+        .orElse(null);
+
+System.out.println(result);
+```
+
+---
+
+# 9. Full-stack fundamentals
+
+### Q92. What happens when you enter a URL in the browser?
+
+**Answer:**
+
+1. The browser resolves the domain using DNS.
+2. It establishes a connection with the server.
+3. For HTTPS, TLS negotiation takes place.
+4. It sends an HTTP request.
+5. The server processes the request.
+6. The response is returned.
+7. The browser parses HTML, CSS and JavaScript and renders the page.
+
+### Q93. What is the difference between frontend and backend?
+
+**Answer:**
+
+Frontend handles the user interface and user interactions.
+
+Backend handles business logic, APIs, authentication, database operations and integrations.
+
+### Q94. What is CORS?
+
+**Answer:**
+
+Cross-Origin Resource Sharing is a browser security mechanism that controls whether a web application from one origin can access resources from another origin.
+
+Backend servers configure permitted origins, methods and headers.
+
+### Q95. What is JWT?
+
+**Answer:**
+
+JWT stands for JSON Web Token.
+
+It is a compact token format commonly used to transmit claims between parties.
+
+It has three parts:
+- Header.
+- Payload.
+- Signature.
+
+The signature helps verify integrity. A JWT payload is not automatically encrypted, so sensitive information should not be placed in it.
+
+### Q96. How does frontend communicate with Spring Boot?
+
+**Answer:**
+
+The frontend makes HTTP requests to backend REST APIs.
+
+The backend processes the request and returns data, commonly in JSON format.
+
+The frontend handles the response and updates the UI.
+
+### Q97. What is the difference between authentication and authorization?
+
+**Answer:**
+
+Authentication verifies who the user is.
+
+Authorization determines what the authenticated user is allowed to access.
+
+---
+
+# 10. Bank of America real-world scenarios
+
+### Q98. A payment API is called twice. How do you prevent duplicate transactions?
+
+**Answer:**
+
+I would implement idempotency using a unique transaction key.
+
+Before processing the payment, the backend checks whether that key has already been processed.
+
+If it exists, the previous result is returned instead of initiating another payment.
+
+I would also maintain transaction states and database constraints to protect against concurrent duplicate requests.
+
+### Q99. Your database is unavailable. What would you do?
+
+**Answer:**
+
+First, I would identify whether the issue is related to connectivity, database availability, connection pool exhaustion or query performance.
+
+I would check application logs and database health.
+
+I would configure appropriate timeouts and controlled retries, avoid overwhelming the database, and return meaningful service errors.
+
+I would also communicate the impact and work with the database or infrastructure team.
+
+### Q100. Kafka receives an event, but database processing fails. What happens?
+
+**Answer:**
+
+I would avoid committing the message offset before successful processing.
+
+I would implement controlled retries and idempotent processing.
+
+If the message continues to fail, I would route it to a dead-letter topic for investigation.
+
+The exact offset and retry strategy depends on the consumer configuration and processing architecture.
+
+### Q101. Two customers update the same account simultaneously. How do you prevent inconsistent data?
+
+**Answer:**
+
+I would use appropriate transaction isolation and concurrency control.
+
+Optimistic locking with a version column is one possible approach.
+
+For highly contended operations, pessimistic locking may be appropriate.
+
+The choice depends on the business requirements and transaction volume.
+
+### Q102. How would you secure sensitive banking information?
+
+**Answer:**
+
+I would implement:
+- Strong authentication and authorization.
+- Encryption in transit using TLS.
+- Encryption at rest.
+- Role-based access controls.
+- Secure secret management.
+- Input validation.
+- Audit trails.
+- Masking of sensitive information in logs.
+- Regular vulnerability assessments.
+
+### Q103. An API is taking five seconds to respond. How would you debug it?
+
+**Answer:**
+
+I would trace the request end-to-end using correlation IDs.
+
+I would examine:
+- API execution time.
+- Database query execution time.
+- External service latency.
+- Thread and connection pool utilisation.
+- Kafka or downstream dependencies.
+- Application logs and monitoring metrics.
+
+Then I would identify the bottleneck and optimise the relevant component.
+
+### Q104. How do you ensure high availability?
+
+**Answer:**
+
+I would use multiple application instances, load balancing, health checks, monitoring, controlled retries, fault tolerance and database backup and recovery mechanisms.
+
+For distributed applications, we should also design services to handle downstream failures gracefully.
+
+---
+
+# 11. HR and client-facing questions
+
+### Q105. Why should we select you?
+
+**Answer:**
+
+I have practical experience developing backend applications using Java and Spring Boot.
+
+My previous experience involved security-focused enterprise applications, API development and external integrations.
+
+I understand the importance of clean code, debugging, reliability and collaboration.
+
+I'm also adaptable and willing to learn the business domain and existing architecture quickly.
+
+### Q106. What are your strengths?
+
+**Answer:**
+
+My strengths are problem-solving, backend development, debugging and understanding existing systems.
+
+I am comfortable learning new technologies and taking ownership of assigned responsibilities.
+
+### Q107. What is your weakness?
+
+**Answer:**
+
+Sometimes I spend additional time understanding the root cause of a problem before implementing a solution.
+
+I'm working on balancing thorough investigation with faster delivery by prioritising issues and communicating progress.
+
+### Q108. How do you handle production issues?
+
+**Answer:**
+
+I first understand the impact and severity.
+
+Then I check logs, metrics and traces to identify the root cause.
+
+If necessary, I coordinate with the relevant teams, implement a fix or workaround, validate the result and document the incident.
+
+### Q109. How do you work in Agile?
+
+**Answer:**
+
+I participate in sprint planning, daily stand-ups, development, code reviews, testing and retrospectives.
+
+I break down tasks, provide progress updates and raise blockers early.
+
+### Q110. Do you have any questions for us?
+
+**Answer:**
+
+Yes, I'd like to understand the project's architecture, the technologies currently used by the team and the expectations for this role during the initial few months.
+
